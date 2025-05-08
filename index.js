@@ -2,7 +2,6 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const morgan = require("morgan");
-const cors = require("cors");
 
 const app = express();
 
@@ -11,7 +10,6 @@ try {
   const database = JSON.parse(rawData);
   let persons = database.persons;
 
-  app.use(cors());
   app.use(express.json());
   app.use(express.static("dist"));
   app.use(morgan("tiny"));
