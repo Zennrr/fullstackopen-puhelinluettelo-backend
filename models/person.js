@@ -2,7 +2,9 @@ const mongoose = require('mongoose')
 
 mongoose.set('strictQuery', false)
 
-const url = process.env.MONGODB_URI
+const password = process.env.MONGODB_PASSWORD
+
+const url = process.env.MONGODB_URI.replace('${MONGODB_PASSWORD}', password)
 
 console.log('connecting to', url)
 mongoose
